@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function AboutPage() {
   return (
     <div className="container mx-auto px-4 py-12">
@@ -6,7 +8,7 @@ export default function AboutPage() {
 
         <div className="prose prose-lg max-w-none">
           <p className="text-xl text-gray-600 mb-8">
-            We're on a mission to make solar energy accessible to everyone through our trusted
+            We&apos;re on a mission to make solar energy accessible to everyone through our trusted
             marketplace connecting buyers with premium solar panel suppliers.
           </p>
 
@@ -46,7 +48,8 @@ export default function AboutPage() {
             <div className="bg-blue-50 p-6 rounded-lg">
               <h3 className="text-xl font-bold mb-2">Sustainability</h3>
               <p className="text-gray-700">
-                We're committed to accelerating the world's transition to renewable energy.
+                We&apos;re committed to accelerating the world&apos;s transition to renewable
+                energy.
               </p>
             </div>
             <div className="bg-green-50 p-6 rounded-lg">
@@ -65,8 +68,8 @@ export default function AboutPage() {
 
           <h2 className="text-3xl font-bold mt-12 mb-4">Join Our Community</h2>
           <p>
-            Whether you're a homeowner looking to reduce your energy bills, a business aiming to
-            meet sustainability goals, or a solar professional seeking quality products, Solar
+            Whether you&apos;re a homeowner looking to reduce your energy bills, a business aiming
+            to meet sustainability goals, or a solar professional seeking quality products, Solar
             Market is your trusted partner in the renewable energy revolution.
           </p>
 
@@ -76,12 +79,12 @@ export default function AboutPage() {
               Browse our extensive catalog of premium solar panels and find the perfect solution for
               your needs.
             </p>
-            <a
+            <Link
               href="/products"
               className="inline-block bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
             >
               Shop Now
-            </a>
+            </Link>
           </div>
         </div>
       </div>

@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Button } from '../ui/Button';
 
 interface ProductFiltersProps {
-  onFilterChange: (filters: any) => void;
+  onFilterChange: (filters: Record<string, string | boolean>) => void;
 }
 
 export default function ProductFilters({ onFilterChange }: ProductFiltersProps) {
@@ -17,7 +17,7 @@ export default function ProductFilters({ onFilterChange }: ProductFiltersProps) 
     featured: false,
   });
 
-  const handleChange = (key: string, value: any) => {
+  const handleChange = (key: string, value: string | boolean) => {
     const newFilters = { ...filters, [key]: value };
     setFilters(newFilters);
     onFilterChange(newFilters);

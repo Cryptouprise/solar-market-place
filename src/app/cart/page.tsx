@@ -9,7 +9,18 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { formatPrice } from '@/lib/utils';
 
 export default function CartPage() {
-  const [cartItems, setCartItems] = useState<any[]>([]);
+  const [cartItems, setCartItems] = useState<Array<{
+    id: string;
+    quantity: number;
+    product: {
+      id: string;
+      name: string;
+      price: number;
+      images: string;
+      manufacturer: string;
+      wattage: number;
+    };
+  }>>([]);
   const [loading, setLoading] = useState(true);
   const [total, setTotal] = useState(0);
 

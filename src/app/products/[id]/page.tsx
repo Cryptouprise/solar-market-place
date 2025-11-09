@@ -12,7 +12,7 @@ async function getProduct(id: string) {
     });
     if (!res.ok) return null;
     return res.json();
-  } catch (error) {
+  } catch {
     return null;
   }
 }
@@ -189,7 +189,15 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
           <CardContent className="p-6">
             <h2 className="text-2xl font-bold mb-6">Customer Reviews</h2>
             <div className="space-y-6">
-              {product.reviews.map((review: any) => (
+              {product.reviews.map(
+                (review: {
+                  id: string;
+                  rating: number;
+                  title: string;
+                  comment: string;
+                  createdAt: string;
+                  user: { name: string | null };
+                }) => (
                 <div key={review.id} className="border-b last:border-0 pb-6 last:pb-0">
                   <div className="flex items-center gap-2 mb-2">
                     {[...Array(5)].map((_, i) => (

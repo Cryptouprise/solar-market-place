@@ -45,7 +45,7 @@ export const authConfig: NextAuthConfig = {
             role: user.role,
             image: user.image,
           };
-        } catch (error) {
+        } catch {
           return null;
         }
       },
@@ -55,6 +55,7 @@ export const authConfig: NextAuthConfig = {
     async jwt({ token, user }) {
       if (user) {
         token.id = user.id;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         token.role = (user as any).role;
       }
       return token;

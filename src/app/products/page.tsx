@@ -6,7 +6,19 @@ import ProductFilters from '@/components/products/ProductFilters';
 import { Button } from '@/components/ui/Button';
 
 export default function ProductsPage() {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<
+    Array<{
+      id: string;
+      name: string;
+      price: number;
+      discountPrice?: number;
+      images: string;
+      wattage: number;
+      manufacturer: string;
+      averageRating?: number;
+      reviewCount?: number;
+    }>
+  >([]);
   const [loading, setLoading] = useState(true);
   const [filters, setFilters] = useState({});
   const [page, setPage] = useState(1);
@@ -14,6 +26,7 @@ export default function ProductsPage() {
 
   useEffect(() => {
     fetchProducts();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filters, page]);
 
   const fetchProducts = async () => {
@@ -37,7 +50,7 @@ export default function ProductsPage() {
     }
   };
 
-  const handleFilterChange = (newFilters: any) => {
+  const handleFilterChange = (newFilters: Record<string, string | boolean>) => {
     setFilters(newFilters);
     setPage(1);
   };
@@ -63,7 +76,7 @@ export default function ProductsPage() {
           ) : (
             <>
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-                {products.map((product: any) => (
+                {products.map((product) => (
                   <ProductCard key={product.id} product={product} />
                 ))}
               </div>

@@ -72,6 +72,7 @@ export async function POST(request: Request) {
     }
 
     // Calculate totals
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const subtotal = items.reduce((sum: number, item: any) => sum + item.price * item.quantity, 0);
     const tax = subtotal * 0.08; // 8% tax
     const shipping = subtotal > 500 ? 0 : 50; // Free shipping over $500
@@ -92,6 +93,7 @@ export async function POST(request: Request) {
           paymentMethod,
           paymentStatus: 'PENDING',
           items: {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             create: items.map((item: any) => ({
               productId: item.productId,
               quantity: item.quantity,
